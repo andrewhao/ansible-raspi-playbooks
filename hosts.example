@@ -1,0 +1,5 @@
+[defaultdevices]
+<HOSTNAME> ansible_host=<IP ADDRESS>
+
+[defaultdevices:vars]
+ansible_user=pi
