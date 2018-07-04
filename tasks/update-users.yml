@@ -1,0 +1,12 @@
+# Contents of passwd will be stored in ansible_facts.getent_passwd as a dict
+- name: Determine local user accounts
+  getent:
+    database: passwd
+  tags: focus
+
+# Update password if user account is found in /etc/passwd
+- name: change passwd
+  user: name={{ item.name }} password={{ item.update_pass | password_hash('sha512') }} update_password=always
+  with_items: "{{ myusers }}"
+  when: item['name'] in ansible_facts.getent_passwd
+  tags: focus

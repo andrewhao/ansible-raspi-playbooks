@@ -1,0 +1,6 @@
+- name: Install python
+  become: yes
+  apt: name={{item}} state=installed
+  with_items:
+    - python
+# - name: Setup pip, virtualenv
