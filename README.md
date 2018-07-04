@@ -37,3 +37,6 @@ Run Ansible:
 
     $ ansible-playbook -v -i hosts playbooks/new-default.yml
 
+## Editing encrypted files
+
+    $ ansible-vault edit path/to/file --vault-id .ansible-vault-password

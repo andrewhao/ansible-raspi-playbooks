@@ -1,2 +1,3 @@
 hosts
 *.retry
+.ansible-vault-password
