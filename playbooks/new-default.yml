@@ -52,3 +52,6 @@
 
     - include_tasks: ../tasks/tzdata.yml
       tags: system
+
+    - include_tasks: ../tasks/dependencies.yml
+      tags: update
