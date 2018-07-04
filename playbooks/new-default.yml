@@ -4,6 +4,8 @@
 ---
 - hosts: defaultdevices
   gather_facts: yes
+  remote_user: pi
+  become: yes
   vars:
     wifi_country: "US"
     locale: "en_US.UTF-8"
@@ -18,23 +20,19 @@
       - regexp: "^#?en_US.UTF-8 UTF-8"
         line: "en_US.UTF-8 UTF-8"
 
-  vars_prompt:
-
-    - name: hostname
-      prompt: "please enter a hostname for your new device:"
-      private: no
-    - name: wifi_ssid
-      prompt: "please enter the WiFi SSID for your new device:"
-      private: no
-    - name: wifi_password
-      prompt: "please enter the WiFi password for your new device:"
-      private: yes
-
   tasks:
+    # Copy SSH public key from this computer
+    - include_tasks: ../tasks/copy-ssh-id.yml
+      tags: setup
 
     # Expand the filesystem
-    # - include_tasks: ../tasks/expand-filesystem.yml
-    #   tags: setup
+    - include_tasks: ../tasks/expand-filesystem.yml
+      tags: setup
+
+    # Update default user passwords
+    - include_tasks: ../tasks/update-users.yml
+      tags:
+        - setup
 
     # Set Internationalization Options
     - include_tasks: ../tasks/internationalization.yml
