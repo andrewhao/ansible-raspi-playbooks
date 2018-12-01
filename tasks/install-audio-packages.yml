@@ -1,0 +1,9 @@
+- name: Install audio packages for audio recording
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - portaudio19-dev
+    - alsa-utils
+    - libav-tools
+    - libavcodec-extra57

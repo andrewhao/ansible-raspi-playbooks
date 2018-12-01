@@ -55,3 +55,6 @@
 
     - include_tasks: ../tasks/dependencies.yml
       tags: update
+
+    - include_tasks: ../tasks/install-audio-packages.yml
+      tags: update

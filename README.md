@@ -10,18 +10,16 @@ Insert the card and boot the pi
 
 ### Step 2:
 
-Install ansible and passlib:
+Install ansible and passlib on a host machine that will then configure the raspberry pi.
 
     $ pip install ansible
     $ pip install passlib
 
 ### Step 3:
 
-Find the IP address of the pi on your network.
+Connect the raspi to an ethernet port.
 
-Copy SSH keys over:
-
-    $ ssh-copy-id -i ~/.ssh/id_rsa.pub pi@<IP_ADDRESS_OF_PI>
+Log into the router and write down the IP address of the pi.
 
 ### Step 4: Configure the host and group variables
 
@@ -35,7 +33,9 @@ Update individual host files in `host_files/<HOSTNAMES>`
 
 Run Ansible:
 
-    $ ansible-playbook -v -i hosts playbooks/new-default.yml
+    $ ansible-playbook -v -i hosts playbooks/new-default.yml --vault-id .ansible-vault-password --ask-pass
+
+Note that the first time you run this, you will want to include the `--ask-pass` flag because the SSH key hasn't been copied over to the pi.
 
 ## Editing encrypted files
 

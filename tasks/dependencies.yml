@@ -1,0 +1,17 @@
+- name: Install dependencies from apt
+  become: yes
+  apt: name={{item}} state=installed
+  with_items:
+    - git-core
+    - build-essential
+    - python-dev
+    - swig
+    - python-smbus
+
+- name: Install virtualenv
+  pip:
+    name: virtualenv
+
+- name: Install pipenv
+  pip:
+    name: pipenv
