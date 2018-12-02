@@ -7,3 +7,5 @@
     - alsa-utils
     - libav-tools
     - libavcodec-extra57
+    - sox
+    - libsox-fmt-all
