@@ -6,7 +6,13 @@
   gather_facts: yes
   remote_user: pi
   become: yes
+  roles:
+    - weareinteractive.environment
   vars:
+    environment_config:
+      TENSORFLOW_USER: "{{ tensorflow_user }}"
+      TENSORFLOW_HOST: "{{ tensorflow_host }}"
+      HOSTNAME: "{{ inventory_hostname }}"
     wifi_country: "US"
     locale: "en_US.UTF-8"
     keyboard: "pc104"
