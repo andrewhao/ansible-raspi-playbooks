@@ -48,6 +48,10 @@
     - include_tasks: ../tasks/wifi.yml
       tags: setup
 
+    # setup mounts
+    - include_tasks: ../tasks/mount-external-devices.yml
+      tags: setup
+
     # Run apt-get update and apt-get upgrade 
     - include_tasks: ../tasks/update.yml
       tags: update
