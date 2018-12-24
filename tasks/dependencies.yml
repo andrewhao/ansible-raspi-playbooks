@@ -5,6 +5,7 @@
     - git-core
     - build-essential
     - python-dev
+    - python-pip
     - swig
     - python-smbus
 
