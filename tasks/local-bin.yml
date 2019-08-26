@@ -1,0 +1,9 @@
+# Configure ~/bin and add it to path.
+- name: Creates $HOME/bin
+  file:
+    path: /home/{{ansible_user}}/bin
+    state: directory
+- name: Add $HOME/bin to $PATH
+  copy:
+    dest: /etc/profile.d/local_bin.sh
+    content: 'PATH=$PATH:$HOME/bin'

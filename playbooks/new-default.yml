@@ -52,6 +52,10 @@
     - include_tasks: ../tasks/mount-external-devices.yml
       tags: setup
 
+    # setup local bin dir
+    - include_tasks: ../tasks/local-bin.yml
+      tags: setup
+
     # Run apt-get update and apt-get upgrade 
     - include_tasks: ../tasks/update.yml
       tags: update
