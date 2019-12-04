@@ -5,7 +5,7 @@
     packages:
     - portaudio19-dev
     - alsa-utils
-    - libav-tools
-    - libavcodec-extra57
+    # - libav-tools
+    # - libavcodec-extra57
     - sox
     - libsox-fmt-all
