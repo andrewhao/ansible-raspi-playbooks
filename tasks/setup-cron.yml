@@ -1,0 +1,6 @@
+- name: Ensure a cronjob that sets up the thermonoto software
+  cron:
+    name: "Thermonoto Environment Readings"
+    minute: "*"
+    user: pi
+    job: "cd /home/pi/workspace/thermonoto/python && /usr/local/bin/pipenv run python thermonoto_make_reading.py"

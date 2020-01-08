@@ -1,6 +1,0 @@
-- name: Mount up device
-  mount:
-    path: /media/pi/Treasure
-    src: /dev/sda1
-    fstype: ext4
-    state: present

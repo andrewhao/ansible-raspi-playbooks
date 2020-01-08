@@ -48,10 +48,6 @@
     - include_tasks: ../tasks/wifi.yml
       tags: setup
 
-    # setup mounts
-    - include_tasks: ../tasks/mount-external-devices.yml
-      tags: setup
-
     # setup local bin dir
     - include_tasks: ../tasks/local-bin.yml
       tags: setup
@@ -72,3 +68,8 @@
 
     - include_tasks: ../tasks/install-audio-packages.yml
       tags: update
+
+    # setup cronjobs
+    - include_tasks: ../tasks/setup-cron.yml
+      tags: setup
+
