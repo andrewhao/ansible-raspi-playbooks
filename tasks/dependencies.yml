@@ -8,6 +8,7 @@
     - python-pip
     - swig
     - python-smbus
+    - s3cmd
 
 - name: Install virtualenv
   pip:
